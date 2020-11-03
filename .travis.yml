@@ -21,6 +21,7 @@ before_install:
   - docker-compose --version
   - pip install pip --upgrade
   - pip install git+https://github.com/timothyb89/dbuild.git
+  - pip install "six>=1.13.0"
   - pip install google-cloud-storage
 
 jobs:
