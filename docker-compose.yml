@@ -10,6 +10,8 @@ services:
     image: influxdb:${INFLUXDB_VERSION}
     environment:
       LOGSTASH_FIELDS: "service=influxdb"
+      INFLUXDB_DATA_INDEX_VERSION: tsi1
+
   influxdb-init:
     image: monasca/influxdb-init:${INFLUXDB_INIT_VERSION}
     environment:
@@ -68,8 +70,9 @@ services:
       LOGSTASH_FIELDS: "service=zookeeper"
     restart: on-failure
 
+  #TODO Push this image into monasca/kafka
   kafka:
-    image: monasca/kafka:${MON_KAFKA_VERSION}
+    image: chaconpiza/kafka:${MON_KAFKA_VERSION}
     environment:
       KAFKA_DELETE_TOPIC_ENABLE: "true"
       LOGSTASH_FIELDS: "service=kafka"
