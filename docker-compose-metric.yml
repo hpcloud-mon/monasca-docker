@@ -42,6 +42,7 @@ services:
     image: monasca/alarms:${MON_ALARMS_VERSION}
     environment:
       LOGSTASH_FIELDS: "service=monasca-alarms"
+      MONASCA_RETRIES: 100
     depends_on:
             #- keystone
       - monasca
