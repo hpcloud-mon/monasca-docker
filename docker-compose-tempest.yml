@@ -1,0 +1,14 @@
+version: '3'
+services:
+
+  tempest-tests:
+    image: chaconpiza/tempest-tests:master
+    environment:
+      KEYSTONE_SERVER: "keystone"
+      STAY_ALIVE_ON_FAILURE: "true"
+      MONASCA_WAIT_FOR_API: "true"
+
+networks:
+  default:
+    external:
+      name: monasca-network
